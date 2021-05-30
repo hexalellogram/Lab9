@@ -58,11 +58,18 @@
   <script>
     let calculateBtn = document.querySelector('#calculate');
     calculateBtn.addEventListener('click', () => {
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      try {
+        let output = document.querySelector('output');
+        let firstNum = document.querySelector('#first-num').value;
+        let secondNum = document.querySelector('#second-num').value;
+        let operator = document.querySelector('#operator').value;
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      } catch (err) {
+        // error can be triggered by pressing calculate with no numbers inside.
+        alert('Calculator error! Please try again and check your numbers.')
+      } finally {
+        console.log('Finished calculation either with a successful operation or an error.')
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
