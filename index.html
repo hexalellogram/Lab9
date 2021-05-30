@@ -163,6 +163,15 @@
     errorBtns[10].onclick = function globalErrorBtn() {
       customErrorFunction();
     };
+
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.log("Error Detected and Caught!");
+      console.log("Here's the error message:");
+      console.log(message);
+      console.log("The error occurred on line " + lineno + " and column " + colno);
+      console.log("The error was from " + source);
+      return true;
+    };
   </script>
 </body>
 </html>
