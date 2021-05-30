@@ -67,6 +67,79 @@
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
     // TODO - Make buttons functional
+    // console log
+    errorBtns[0].onclick = function consoleLogBtn() {
+      console.log("Console Log Button Clicked!");
+    };
+
+    // console error
+    errorBtns[1].onclick = function consoleErrorBtn() {
+      console.error("An error occurred when you clicked the Console Error Button!");
+    };
+
+    // console dir
+    errorBtns[2].onclick = function consoleDirBtn() {
+      let testJSON = {
+        "property1": "the first property",
+        "property2": "the second property",
+        "array": ["index0", "index1"]
+      };
+      console.dir(testJSON);
+    }
+
+    // console dirxml
+    errorBtns[3].onclick = function consoleDirxmlBtn() {
+      console.dirxml(document);
+    };
+    
+    // console group
+    let label = "Console Log Group";
+    errorBtns[4].onclick = function consoleGroupBtn() {
+      console.group(label);
+    };
+    errorBtns[5].onclick = function consoleGroupEndBtn() {
+      console.groupEnd(label);
+    };
+
+    // console table
+    errorBtns[6].onclick = function consoleTableBtn() {
+      const arr = [
+        {
+          "name": "bobby",
+          "age": 27,
+          "hobby": "fishing"
+        },
+        {
+          "name": "billy",
+          "age": 12,
+          "hobby": "video games"
+        },
+        {
+          "name": "jerry",
+          "age": 41,
+          "hobby": "coding"
+        }
+      ];
+      console.table(arr);
+    };
+
+    // console timer
+    let timerLabel = "Console Timer";
+    errorBtns[7].onclick = function timerStartBtn() {
+      console.time(timerLabel);
+    };
+    errorBtns[8].onclick = function timerEndBtn() {
+      console.timeEnd(timerLabel);
+    };
+
+    // console trace
+    errorBtns[9].onclick = function consoleTracebBtn() {
+      const layer1 = () => { layer2(); };
+      const layer2 = () => { layer3(); };
+      const layer3 = () => { layer4(); };
+      const layer4 = () => { console.trace(); };
+      layer1();
+    };
   </script>
 </body>
 </html>
