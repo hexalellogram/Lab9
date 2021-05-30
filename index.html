@@ -89,6 +89,7 @@
 
     // console error
     errorBtns[1].onclick = function consoleErrorBtn() {
+      TrackJS.track('Console error button clicked!');
       console.error("An error occurred when you clicked the Console Error Button!");
     };
 
@@ -164,6 +165,7 @@
     }
 
     function customErrorFunction() {
+      TrackJS.track('Objection error!');
       throw new ObjectionError("Obejection! The witness's testimony contains a fatal contradiction!");
     }
 
