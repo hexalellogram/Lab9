@@ -147,6 +147,22 @@
       const layer4 = () => { console.trace(); };
       layer1();
     };
+
+    class ObjectionError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "ObjectionError";
+      }
+    }
+
+    function customErrorFunction() {
+      throw new ObjectionError("Obejection! The witness's testimony contains a fatal contradiction!");
+    }
+
+    // global error btn
+    errorBtns[10].onclick = function globalErrorBtn() {
+      customErrorFunction();
+    };
   </script>
 </body>
 </html>
